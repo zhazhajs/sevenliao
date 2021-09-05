@@ -59,8 +59,8 @@ body{
 }
 
 .common-list{
-    display: flex;
-    overflow: auto;
+    /* display: flex;
+    overflow: auto; */
 }
 
 .common-list li{
