@@ -107,12 +107,11 @@ body{
 
 .list{
     margin: 2% 2%;
-    padding: 2% 2%;
     background-color: #ffffff;
 }
 
 .list li{
-    margin-bottom: 4%;
+    margin-bottom: 1%;
     display: inline-block;
 }
 
@@ -137,6 +136,7 @@ body{
     font-size: 16px;
     padding: 12px 30px 12px 30px;
     text-decoration: none;
+    display: inline-block;
   }
   
 .button:hover {
