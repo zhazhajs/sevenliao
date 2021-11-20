@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>文章</title>
+        <meta charset="UTF-8">
+        <script src="./js/ajax.js"></script>
+        <link href="./css/index.css" rel="stylesheet" type="text/css">
+        <style>
+            body{
+                margin:0;
+                padding:0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <ul class="ul" id="actUlId"> </ul>
+            <div class="dialog">
+                <div 
+                    style="height: 100%; padding:30px 30px;background-color: #fff;border: 1px solid #999;overflow:auto;" 
+				    id="activeId"
+                ></div>
+            </div>
+        </div>
+        <script> 
+            function getPageList (){
+                Ajax()
+                .post(
+                    {
+                        url : 'http://127.0.0.1:7001/article/pagelist',
+                        success : (data)=> {
+                            let items = JSON.parse(data);
+                            console.log(items)
+                            let { message, result, success } = items;
+                            let resArr = result.map( (item,index) => {
+                                let tempObt = {
+                                    key: 'key-'+index,
+                                    value: item.title,
+                                };
+                                return tempObt;
+                            });
+     
+                            let newArr = '';
+                            resArr.forEach((item)=>{
+                                newArr = newArr+ `<li class="li"><p><a>${item.value}</a></p></li>`
+                            })
+                            let node = document.getElementById('actUlId')
+                            node.innerHTML = newArr;
+
+                            let node2 = document.getElementById('activeId')
+                            node2.innerHTML = resArr[1].value;
+                            
+                        },
+                        async : true
+                    });
+            }
+
+            getPageList()
+        </script>
+    </body>
+</html>

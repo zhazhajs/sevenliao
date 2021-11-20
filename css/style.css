@@ -179,6 +179,10 @@ body{
         padding-left: 50px;
     }
 
+    .aicon{
+        width: 120px;
+    }
+
     .aTextBtn{
         font-size: 44px;
         height: 50px;
